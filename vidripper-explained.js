@@ -33,7 +33,7 @@ function getStream() {
     else {
         stream = target.captureStream(60)
     }
-    recorder = new MediaRecorder(stream, {mimeType: 'video/webm'}) // create the media recorder
+    recorder = new MediaRecorder(stream, {mimeType: 'video/webm; codecs=vp9', bitsPerSecond: 1000000}) // create the media recorder
     recorder.addEventListener('dataavailable',function (e) {
         chunks.push(e.data) // when we get new data, push it into this list.
         amountRecorded++;
